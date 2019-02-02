@@ -1,0 +1,37 @@
+#everythingSports{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 8vw;
+    background-color: black;
+    padding: 20px;
+    font-weight: 700;
+}
+
+
+.leagueName{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-shadow: 2px 2px red;
+    font-size: 8vw;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.leagueName:hover{
+    color: red;
+}
+
+.leagueImg{
+    z-index: 0;
+    position: absolute;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    left: 0px;
+}
+
+.card{
+    min-height: 400px;
+    display: inline;
+}
