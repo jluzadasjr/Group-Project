@@ -133,3 +133,11 @@ input[type="text"]:focus {
   color: black;
 }
 /*# sourceMappingURL=awesomplete.css.map */
+
+
+
+/* Modal popup */
+
+#pageModal {
+  z-index: 3;
+}

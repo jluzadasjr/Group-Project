@@ -28,7 +28,7 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Needs URLS
+  // URLS done Names need completing
   const NFLArray = [
     { name: "CARDINALS", url: "https://www.azcardinals.com/" },
     { name: "ATLANTA FALCONS", url: "https://www.atlantafalcons.com"},
@@ -76,34 +76,33 @@ $(document).ready(function() {
 
 
 
-  // Search Button form input
-  $("#formInput").on("click", function(action) {
-    action.preventDefault();
-    var input = $("#searchBtn").val();
-    // $("#formInput").attr("action", "/www.google.com");
-    console.log(input);
-  });
+  // This is creates search restrictions to teams within the object/array & loads team page
+$("#s").keypress(function(action) {
+  
+  if (action.which == 13) {
+    var input = $("#s").val();
+    var capUserInput = input.toUpperCase();
+    index = -1;
 
+    var modal = $("#pageModal");
+    var span = $(".close")[0];
 
-
-
-
-  //This is creates search restrictions to teams within the object/array & loads team page
-
-  // var userInput = prompt("hello");
-  // var capUserInput = userInput.toUpperCase();
-  // index = -1;
-  // for (var i = 0, len = NFLArray.length; i <len; i++){
-  //   if (NFLArray[i].name === capUserInput){
-  //     // index = 1;
-  //     console.log("it's there");
-  //     $("#submit-btn").attr("action", NFLArray[i].url);
-  //     window.location = NFLArray[i].url;
-  //   } else {
-  //     console.log("not there");
-  //   }
-  // }
-
+    for (var i = 0, len = NFLArray.length; i < len; i++) {
+      if (NFLArray[i].name === capUserInput) {
+        $("#s").attr("action", NFLArray[i].url);
+        window.location = NFLArray[i].url;
+      } else {
+        // Modal display
+        setTimeout(function(){
+          modal[0].style.display = "block";
+        }, 1000);
+        span.onclick = function() {
+          modal[0].style.display = "none";
+        };
+      }
+    }
+  }
+});
 
 
   // News Search API/Google Search
