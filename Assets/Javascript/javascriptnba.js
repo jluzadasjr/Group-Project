@@ -22,7 +22,7 @@ $(document).ready(function() {
   
     
       googleQueryUrl =
-        "https://newsapi.org/v2/everything?q=NHL&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+        "https://newsapi.org/v2/everything?q=NBA&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
       $.ajax({
         url: googleQueryUrl,
         method: "GET"
@@ -42,7 +42,7 @@ $(document).ready(function() {
           newDiv1.attr("id", "divId1" + [i]);
           $("#divId1").attr("action", url);
   
-          $("#nhl-headlines").append(newDiv1);
+          $("#nba-headlines").append(newDiv1);
 
 
           $("#divId1"+[i]).on("click", function(){
@@ -62,7 +62,7 @@ $(document).ready(function() {
     $.ajax({
       type: "GET",
       url:
-        "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/daily_game_schedule.json?fordate=" +
+        "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/NBA/2018-2019-regular/daily_game_schedule.json?fordate=" +
         today,
       dataType: "json",
       async: true,
@@ -86,7 +86,7 @@ $(document).ready(function() {
           newDiv = $("<div>");
           newDiv.attr("id", "divId" + [i]);
   
-          $("#nhl-schedule").append(newDiv);
+          $("#nba-schedule").append(newDiv);
   
           $("#divId" + [i]).html(
             "<p>" +
@@ -110,7 +110,7 @@ $(document).ready(function() {
     $.ajax({
       type: "GET",
       url:
-        "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/scoreboard.json?fordate=" +
+        "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/NBA/2018-2019-regular/scoreboard.json?fordate=" +
         yesterday,
       dataType: "json",
       async: true,
@@ -123,37 +123,4 @@ $(document).ready(function() {
         console.log(data1.scoreboard.gameScore);
       }
     });
-
-      $.ajax({
-    type: "GET",
-    url:
-      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/scoreboard.json?fordate="+yesterday,
-    dataType: "json",
-    async: true,
-    headers: {
-      Authorization: "Basic " + btoa(sportsFeedsKey + ":" + sportsFeedsPass)
-    },
-    data: '{ "comment" }',
-    
-    success: function(data1) {
-      // Gets the total number of games for the day to loop over
-      var numGames = data1.scoreboard.gameScore.length;
-
-      for (var i = 0; i < numGames; i++){
-        awayScore = data1.scoreboard.gameScore[i].awayScore;
-        awayTeam = data1.scoreboard.gameScore[i].game.awayTeam.Abbreviation;
-
-        homeScore = data1.scoreboard.gameScore[i].homeScore;
-        homeTeam =   data1.scoreboard.gameScore[i].game.homeTeam.Abbreviation;
-        
-        newDiv2 = $("<div>");
-        newDiv2.attr("id", "newDivId2" + [i]);
-
-        $("#displayDiv").append(newDiv2);
-
-        $("#newDivId2"+[i]).html(homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore );
-    
-      }
-    }
-  });
   });
