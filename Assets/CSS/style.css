@@ -5,7 +5,6 @@
     display: block;
     position: relative;
     z-index: 2;
-    
 }
 
 .leagueName:hover{
@@ -32,9 +31,9 @@ nav{
 }
 
 .container{
-    background-image: linear-gradient(to right, white,black);
     width: 100%;
 }
+
 
 
 
