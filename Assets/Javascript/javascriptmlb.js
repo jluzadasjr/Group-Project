@@ -173,7 +173,8 @@ $(document).ready(function() {
         $("#mlb-schedule").append(newDiv3);
 
         $("#divId3" + [i]).html(
-          "<p>" +
+          "<br><p></p>" +
+            "<p>" +
             homeTeam +
             " vs " +
             awayTeam +
@@ -222,7 +223,7 @@ $(document).ready(function() {
         $("#mlb-scores").append(newDiv2);
 
         $("#newDivId2" + [i]).html(
-          homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
+          "<br><p></p>" + homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
         );
       }
     }

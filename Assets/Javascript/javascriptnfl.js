@@ -224,7 +224,7 @@ $(document).ready(function() {
         $("#nfl-scores").append(newDiv2);
 
         $("#newDivId2" + [i]).html(
-          homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
+          "<br><p></p>" + homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
         );
       }
     }

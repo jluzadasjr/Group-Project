@@ -1,3 +1,27 @@
+/* Overall css*/ 
+
+p {
+  font-family: 'Eczar', serif;
+  font-size: 20px;
+}
+
+h3 {
+  font-family: 'Exo 2', sans-serif;
+}
+
+a {
+  font-family: 'Exo 2', sans-serif;
+}
+
+#nav-title {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+
 /* NBA CSS */
 
 input[type="text"] {
@@ -21,11 +45,29 @@ input[type="text"]:focus {
   margin-right: auto;
 }
 
+#nba-scores {
+  font-family: 'Taviraj', serif;
+}
+
 /* MLB CSS */
+
+#mlb-scores {
+  font-family: 'Taviraj', serif;
+
+}
 
 /* NFL CSS */
 
+#nfl-scores {
+  font-family: 'Taviraj', serif;
+  
+}
+
 /* NHL CSS */
+#nhl-scores {
+  font-family: 'Taviraj', serif;
+  
+}
 
 /* Auto Complete Plugin */
 
