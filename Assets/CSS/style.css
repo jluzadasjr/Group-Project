@@ -24,6 +24,8 @@ a {
 }
 
 
+
+
 /* NBA CSS */
 
 
@@ -87,6 +89,64 @@ input[type="text"]:focus {
   font-family: 'Taviraj', serif;
   
 }
+
+/* Home Page CSS */
+.leagueName{
+  font-family: 'Times New Roman', Times, serif;
+  color: red;
+  font-size: 5vw;
+  display: block;
+  position: relative;
+  z-index: 2;
+  
+}
+
+.leagueName:hover{
+  font-size: 6vw;
+  -webkit-transition: font-size 2s;
+}
+
+.leagueName:active{
+  background-color: white;
+}
+
+.leagueImg{
+  position: absolute;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto 0 20px;
+  left: 0px;
+}
+
+/* .card{
+  padding: 8px;
+  min-height: 400px;
+  display: inline;
+} */
+
+
+nav{
+  background-color: black;
+}
+
+.container{
+  width: 100%;
+}
+
+
+
+
+@media only screen and (min-width: 2000px) {
+  .leagueName {
+    visibility: hidden;
+  }
+}
+
+.liveStream{
+  transition:0s;
+}
+
+
 
 /* Auto Complete Plugin */
 
