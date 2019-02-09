@@ -12,7 +12,6 @@ $(document).ready(function() {
   }
   var today = yyyy + mm + dd;
 
-
   console.log(today);
 
   // Calculates Previous day
@@ -73,39 +72,39 @@ $(document).ready(function() {
     JSON.stringify(NHLString);
     emptyArray.push(NHLString);
   }
-  console.log(emptyArray);
   $(".awesomplete").attr("data-list", emptyArray);
 
 
 
 
-  // Search Button form input
-  $("#formInput").on("click", function(action) {
-    action.preventDefault();
-    var input = $("#searchBtn").val();
-    // $("#formInput").attr("action", "/www.google.com");
-    console.log(input);
+  // This is creates search restrictions to teams within the object/array & loads team page
+  $("#s").keypress(function(action) {
+  
+
+    if (action.which == 13) {
+      var input = $("#s").val();
+      var capUserInput = input.toUpperCase();
+      index = -1;
+
+      var modal = $("#pageModal");
+      var span = $(".close")[0];
+
+      for (var i = 0, len = NHLArray.length; i < len; i++) {
+        if (NHLArray[i].name === capUserInput) {
+          $("#s").attr("action", NHLArray[i].url);
+          window.location = NHLArray[i].url;
+        } else {
+          // Modal display
+          setTimeout(function(){
+            modal[0].style.display = "block";
+          }, 1000);
+          span.onclick = function() {
+            modal[0].style.display = "none";
+          };
+        }
+      }
+    }
   });
-
-
-
-
-
-  //This is creates search restrictions to teams within the object/array & loads team page
-
-  // var userInput = prompt("hello");
-  // var capUserInput = userInput.toUpperCase();
-  // index = -1;
-  // for (var i = 0, len = NFLArray.length; i <len; i++){
-  //   if (NFLArray[i].name === capUserInput){
-  //     // index = 1;
-  //     console.log("it's there");
-  //     $("#submit-btn").attr("action", NFLArray[i].url);
-  //     window.location = NFLArray[i].url;
-  //   } else {
-  //     console.log("not there");
-  //   }
-  // }
 
 
 
@@ -113,7 +112,7 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+  "https://newsapi.org/v2/everything?language=en&q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -126,12 +125,12 @@ $(document).ready(function() {
 
       newDiv1 = $("<div>");
       newDiv1.attr("id", "divId1" + [i]);
-      $("#divId1").attr("action", url);
+      newDiv1.attr("href", url);
 
       $("#nhl-headlines").append(newDiv1);
 
       $("#divId1" + [i]).on("click", function() {
-        window.location = url;
+        window.location = $(this).attr("href");
       });
 
       $("#divId1" + [i]).html(
@@ -139,17 +138,12 @@ $(document).ready(function() {
       );
       document.getElementById("divId1" + [i]).style.border = "outset #808080";
       document.getElementById("divId1" + [i]).style.borderWidth = "thin";
-      
     }
   });
-
-
 
   // Sports Feed API
   var sportsFeedsKey = "d2b26d10-70fd-44f2-a5fb-08a4fb";
   var sportsFeedsPass = "Thisisauselesspassword!";
-
-
 
   // Gets Current Schedule
   $.ajax({
@@ -164,24 +158,35 @@ $(document).ready(function() {
     },
     data: '{ "comment" }',
     success: function(data) {
-      var numGamesToday = data.dailygameschedule.gameentry.length;
+      var numGamesToday = data.dailygameschedule;
 
-      for (var i = 0; i < numGamesToday; i++) {
-        var homeTeam =
-          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
-        var awayTeam =
-          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
-        var date = data.dailygameschedule.gameentry[i].date;
-        var time = data.dailygameschedule.gameentry[i].time;
-        var location = data.dailygameschedule.gameentry[i].location;
-
+      if(numGamesToday === undefined){
         newDiv3 = $("<div>");
         newDiv3.attr("id", "divId3" + [i]);
-
+        
         $("#nhl-schedule").append(newDiv3);
-
+        
         $("#divId3" + [i]).html(
-          "<br><p></p>" +
+          "<p>There are no games today</p>");
+      } else {
+        numGamesToday = data.dailygameschedule.gameentry.length;
+        
+        for (var i = 0; i < numGamesToday; i++) {
+          var homeTeam =
+          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
+          var awayTeam =
+          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
+          var date = data.dailygameschedule.gameentry[i].date;
+          var time = data.dailygameschedule.gameentry[i].time;
+          var location = data.dailygameschedule.gameentry[i].location;
+          
+          newDiv3 = $("<div>");
+          newDiv3.attr("id", "divId3" + [i]);
+          
+          $("#nhl-schedule").append(newDiv3);
+          
+          $("#divId3" + [i]).html(
+            "<p>" +
             homeTeam +
             " vs " +
             awayTeam +
@@ -193,12 +198,11 @@ $(document).ready(function() {
             " " +
             time +
             "<br><br><br></p>"
-        );
+            );
+          }
+        }
       }
-    }
   });
-
-
 
   // Gets yesterdays Scores
   $.ajax({
@@ -230,7 +234,7 @@ $(document).ready(function() {
         $("#nhl-scores").append(newDiv2);
 
         $("#newDivId2" + [i]).html(
-          "<br><p></p>" + homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
+          homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
         );
       }
     }
