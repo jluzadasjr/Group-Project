@@ -12,7 +12,6 @@ $(document).ready(function() {
   }
   var today = yyyy + mm + dd;
 
-
   console.log(today);
 
   // Calculates Previous day
@@ -29,46 +28,45 @@ $(document).ready(function() {
   var yesterday = yyyy + mm + dd;
 
   // Needs URLS
-  const NHLArray = [
-    { name: "HURRICANES", url: "https://www.azcardinals.com/" },
-    { name: "BLUE JACKETS", url: "https://www.atlantafalcons.com" },
-    { name: "DEVILS", url: "https://www.baltimoreravens.com" },
-    { name: "ISLANDERS", url: "https://www.buffalobills.com/" },
-    { name: "RANGERS", url: "https://www.panthers.com/" },
-    { name: "FLYERS", url: "https://www.chicagobears.com" },
-    { name: "PENGUINS", url: "https://www.bengals.com" },
-    { name: "CAPITALS", url: "https://www.clevelandbrowns.com" },
-    { name: "BRUINS", url: "https://www.dallascowboys.com" },
-    { name: "SABRES", url: "https://www.denverbroncos.com" },
-    { name: "RED WINGS", url: "https://www.detroitlions.com/" },
-    { name: "PANTHERS", url: "https://www.packers.com/" },
-    { name: "CANADIENS", url: "https://www.houstontexans.com" },
-    { name: "SENATORS", url: "https://www.colts.com" },
-    { name: "LIGHTNING", url: "https://www.jaguars.com" },
-    { name: "MAPLE LEAFS", url: "https://www.chiefs.com" },
-    { name: "BLACKHAWKS", url: "https://www.therams.com" },
-    { name: "AVALANCHE", url: "https://www.miamidolphins.com" },
-    { name: "STARS", url: "https://www.vikings.com" },
-    { name: "WILD", url: "https://www.patriots.com" },
-    { name: "PREDATORS", url: "https://www.neworleanssaints.com" },
-    { name: "BLUES", url: "https://www.giants.com/" },
-    { name: "JETS", url: "https://www.newyorkjets.com/" },
-    { name: "DUCKS", url: "https://www.raiders.com/" },
-    { name: "COYOTES", url: "https://www.philadelphiaeagles.com/" },
-    { name: "FLAMES", url: "https://www.steelers.com" },
-    { name: "OILERS", url: "https://www.49ers.com" },
-    { name: "KINGS", url: "https://www.seahawks.com" },
-    { name: "SHARKS", url: "https://www.buccaneers.com/" },
-    { name: "CANUCKS", url: "https://www.titansonline.com/" },
-    { name: "GOLDEN KNIGHTS", url: "https://www.redskins.com" }
+  const MLBArray = [
+    { name: "ORIOLES", url: "orioles.com" },
+    { name: "RED SOX", url: "redsox.com"},
+    { name: "WHITE SOX", url: "whitesox.com" },
+    { name: "INDIANS", url: "indians.com" },
+    { name: "DIAMONDBACKS", url: "dbacks.com" },
+    { name: "BRAVES", url: "braves.com" },
+    { name: "CUBS", url: "cubs.com" },
+    { name: "REDS", url: "reds.com" },
+    { name: "TIGERS", url: "tigers.com" },
+    { name: "ASTROS", url: "astros.com" },
+    { name: "ROYALS", url: "royals.com" },
+    { name: "ANGELS", url: "angels.com" },
+    { name: "ROCKIES", url: "Rockies.com" },
+    { name: "DODGERS", url: "dodgers.com" },
+    { name: "MARLINS", url: "marlins.com" },
+    { name: "BREWERS", url: "brewers.com" },
+    { name: "TWINS", url: "twinsbaseball.com" },
+    { name: "YANKEES", url: "yankees.com" },
+    { name: "ATHLETICS", url: "athletics.com" },
+    { name: "MARINERS", url: "Mariners.com" },
+    { name: "METS", url: "mets.com" },
+    { name: "PHILLIES", url: "phillies.com" },
+    { name: "PIRATES", url: "pirates.com" },
+    { name: "PADRES", url: "padres.com" },
+    { name: "RAYS", url: "raysbaseball.com" },
+    { name: "RANGERS", url: "texasrangers.com" },
+    { name: "BLUE JAYS", url: "bluejays.com" },
+    { name: "GIANTS", url: "SFGiants.com" },
+    { name: "CARDINALS", url: "cardinals.com" },
+    { name: "NATIONALS", url: "nationals.com" },
   ];
 
   // Gets Array String
   emptyArray = [];
-  for (var i = 0; i < NHLArray.length; i++) {
-    NHLString = NHLArray[i].name;
-    JSON.stringify(NHLString);
-    emptyArray.push(NHLString);
+  for (var i = 0; i < MLBArray.length; i++) {
+    MLBString = MLBArray[i].name;
+    JSON.stringify(MLBString);
+    emptyArray.push(MLBString);
   }
   console.log(emptyArray);
   $(".awesomplete").attr("data-list", emptyArray);
@@ -110,7 +108,7 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+    "https://newsapi.org/v2/everything?q=MLB&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -125,7 +123,7 @@ $(document).ready(function() {
       newDiv1.attr("id", "divId1" + [i]);
       $("#divId1").attr("action", url);
 
-      $("#nhl-headlines").append(newDiv1);
+      $("#mlb-headlines").append(newDiv1);
 
       $("#divId1" + [i]).on("click", function() {
         window.location = url;
@@ -149,7 +147,7 @@ $(document).ready(function() {
   $.ajax({
     type: "GET",
     url:
-      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/daily_game_schedule.json?fordate=" +
+      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/mlb/current/daily_game_schedule.json?fordate=" +
       today,
     dataType: "json",
     async: true,
@@ -172,7 +170,7 @@ $(document).ready(function() {
         newDiv3 = $("<div>");
         newDiv3.attr("id", "divId3" + [i]);
 
-        $("#nhl-schedule").append(newDiv3);
+        $("#mlb-schedule").append(newDiv3);
 
         $("#divId3" + [i]).html(
           "<p>" +
@@ -198,7 +196,7 @@ $(document).ready(function() {
   $.ajax({
     type: "GET",
     url:
-      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/scoreboard.json?fordate=" +
+      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/MLB/current/scoreboard.json?fordate=" +
       yesterday,
     dataType: "json",
     async: true,
@@ -221,7 +219,7 @@ $(document).ready(function() {
         newDiv2 = $("<div>");
         newDiv2.attr("id", "newDivId2" + [i]);
 
-        $("#nhl-scores").append(newDiv2);
+        $("#mlb-scores").append(newDiv2);
 
         $("#newDivId2" + [i]).html(
           homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore

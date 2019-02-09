@@ -29,46 +29,46 @@ $(document).ready(function() {
   var yesterday = yyyy + mm + dd;
 
   // Needs URLS
-  const NHLArray = [
-    { name: "HURRICANES", url: "https://www.azcardinals.com/" },
-    { name: "BLUE JACKETS", url: "https://www.atlantafalcons.com" },
-    { name: "DEVILS", url: "https://www.baltimoreravens.com" },
-    { name: "ISLANDERS", url: "https://www.buffalobills.com/" },
-    { name: "RANGERS", url: "https://www.panthers.com/" },
-    { name: "FLYERS", url: "https://www.chicagobears.com" },
-    { name: "PENGUINS", url: "https://www.bengals.com" },
-    { name: "CAPITALS", url: "https://www.clevelandbrowns.com" },
-    { name: "BRUINS", url: "https://www.dallascowboys.com" },
-    { name: "SABRES", url: "https://www.denverbroncos.com" },
-    { name: "RED WINGS", url: "https://www.detroitlions.com/" },
-    { name: "PANTHERS", url: "https://www.packers.com/" },
-    { name: "CANADIENS", url: "https://www.houstontexans.com" },
-    { name: "SENATORS", url: "https://www.colts.com" },
-    { name: "LIGHTNING", url: "https://www.jaguars.com" },
-    { name: "MAPLE LEAFS", url: "https://www.chiefs.com" },
-    { name: "BLACKHAWKS", url: "https://www.therams.com" },
-    { name: "AVALANCHE", url: "https://www.miamidolphins.com" },
-    { name: "STARS", url: "https://www.vikings.com" },
-    { name: "WILD", url: "https://www.patriots.com" },
-    { name: "PREDATORS", url: "https://www.neworleanssaints.com" },
-    { name: "BLUES", url: "https://www.giants.com/" },
+  const NFLArray = [
+    { name: "CARDINALS", url: "https://www.azcardinals.com/" },
+    { name: "ATLANTA FALCONS", url: "https://www.atlantafalcons.com"},
+    { name: "RAVENS", url: "https://www.baltimoreravens.com" },
+    { name: "BILLS", url: "https://www.buffalobills.com/" },
+    { name: "PANTHERS", url: "https://www.panthers.com/" },
+    { name: "BEARS", url: "https://www.chicagobears.com" },
+    { name: "BENGALS", url: "https://www.bengals.com" },
+    { name: "BROWNS", url: "https://www.clevelandbrowns.com" },
+    { name: "COWBOYS", url: "https://www.dallascowboys.com" },
+    { name: "BRONCOS", url: "https://www.denverbroncos.com" },
+    { name: "LIONS", url: "https://www.detroitlions.com/" },
+    { name: "PACKERS", url: "https://www.packers.com/" },
+    { name: "TEXANS", url: "https://www.houstontexans.com" },
+    { name: "COLTS", url: "https://www.colts.com" },
+    { name: "JAGUARS", url: "https://www.jaguars.com" },
+    { name: "CHEIFS", url: "https://www.chiefs.com" },
+    { name: "RAMS", url: "https://www.therams.com" },
+    { name: "DOLPHINS", url: "https://www.miamidolphins.com" },
+    { name: "VIKINGS", url: "https://www.vikings.com" },
+    { name: "PATRIOTS", url: "https://www.patriots.com" },
+    { name: "SAINTS", url: "https://www.neworleanssaints.com" },
+    { name: "GIANTS", url: "https://www.giants.com/" },
     { name: "JETS", url: "https://www.newyorkjets.com/" },
-    { name: "DUCKS", url: "https://www.raiders.com/" },
-    { name: "COYOTES", url: "https://www.philadelphiaeagles.com/" },
-    { name: "FLAMES", url: "https://www.steelers.com" },
-    { name: "OILERS", url: "https://www.49ers.com" },
-    { name: "KINGS", url: "https://www.seahawks.com" },
-    { name: "SHARKS", url: "https://www.buccaneers.com/" },
-    { name: "CANUCKS", url: "https://www.titansonline.com/" },
-    { name: "GOLDEN KNIGHTS", url: "https://www.redskins.com" }
+    { name: "RAIDERS", url: "https://www.raiders.com/" },
+    { name: "EAGLES", url: "https://www.philadelphiaeagles.com/" },
+    { name: "STEELERS", url: "https://www.steelers.com" },
+    { name: "49ERS", url: "https://www.49ers.com" },
+    { name: "SEAHAWKS", url: "https://www.seahawks.com" },
+    { name: "BUCCANEERS", url: "https://www.buccaneers.com/" },
+    { name: "TITANS", url: "https://www.titansonline.com/" },
+    { name: "REDSKINS", url: "https://www.redskins.com" }
   ];
 
   // Gets Array String
   emptyArray = [];
-  for (var i = 0; i < NHLArray.length; i++) {
-    NHLString = NHLArray[i].name;
-    JSON.stringify(NHLString);
-    emptyArray.push(NHLString);
+  for (var i = 0; i < NFLArray.length; i++) {
+    NFLString = NFLArray[i].name;
+    JSON.stringify(NFLString);
+    emptyArray.push(NFLString);
   }
   console.log(emptyArray);
   $(".awesomplete").attr("data-list", emptyArray);
@@ -110,7 +110,7 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+    "https://newsapi.org/v2/everything?q=NFL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -125,7 +125,7 @@ $(document).ready(function() {
       newDiv1.attr("id", "divId1" + [i]);
       $("#divId1").attr("action", url);
 
-      $("#nhl-headlines").append(newDiv1);
+      $("#nfl-headlines").append(newDiv1);
 
       $("#divId1" + [i]).on("click", function() {
         window.location = url;
@@ -149,7 +149,7 @@ $(document).ready(function() {
   $.ajax({
     type: "GET",
     url:
-      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/daily_game_schedule.json?fordate=" +
+      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nfl/2018-2019-regular/daily_game_schedule.json?fordate=" +
       today,
     dataType: "json",
     async: true,
@@ -172,7 +172,7 @@ $(document).ready(function() {
         newDiv3 = $("<div>");
         newDiv3.attr("id", "divId3" + [i]);
 
-        $("#nhl-schedule").append(newDiv3);
+        $("#nfl-schedule").append(newDiv3);
 
         $("#divId3" + [i]).html(
           "<p>" +
@@ -198,7 +198,7 @@ $(document).ready(function() {
   $.ajax({
     type: "GET",
     url:
-      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nhl/2018-2019-regular/scoreboard.json?fordate=" +
+      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/nfl/2018-2019-regular/scoreboard.json?fordate=" +
       yesterday,
     dataType: "json",
     async: true,
@@ -221,7 +221,7 @@ $(document).ready(function() {
         newDiv2 = $("<div>");
         newDiv2.attr("id", "newDivId2" + [i]);
 
-        $("#nhl-scores").append(newDiv2);
+        $("#nfl-scores").append(newDiv2);
 
         $("#newDivId2" + [i]).html(
           homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
