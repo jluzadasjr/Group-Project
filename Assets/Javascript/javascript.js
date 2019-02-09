@@ -28,39 +28,42 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Needs URLS
+  // Urls done
   const NHLArray = [
-    { name: "HURRICANES", url: "https://www.azcardinals.com/" },
-    { name: "BLUE JACKETS", url: "https://www.atlantafalcons.com" },
-    { name: "DEVILS", url: "https://www.baltimoreravens.com" },
-    { name: "ISLANDERS", url: "https://www.buffalobills.com/" },
-    { name: "RANGERS", url: "https://www.panthers.com/" },
-    { name: "FLYERS", url: "https://www.chicagobears.com" },
-    { name: "PENGUINS", url: "https://www.bengals.com" },
-    { name: "CAPITALS", url: "https://www.clevelandbrowns.com" },
-    { name: "BRUINS", url: "https://www.dallascowboys.com" },
-    { name: "SABRES", url: "https://www.denverbroncos.com" },
-    { name: "RED WINGS", url: "https://www.detroitlions.com/" },
-    { name: "PANTHERS", url: "https://www.packers.com/" },
-    { name: "CANADIENS", url: "https://www.houstontexans.com" },
-    { name: "SENATORS", url: "https://www.colts.com" },
-    { name: "LIGHTNING", url: "https://www.jaguars.com" },
-    { name: "MAPLE LEAFS", url: "https://www.chiefs.com" },
-    { name: "BLACKHAWKS", url: "https://www.therams.com" },
-    { name: "AVALANCHE", url: "https://www.miamidolphins.com" },
-    { name: "STARS", url: "https://www.vikings.com" },
-    { name: "WILD", url: "https://www.patriots.com" },
-    { name: "PREDATORS", url: "https://www.neworleanssaints.com" },
-    { name: "BLUES", url: "https://www.giants.com/" },
-    { name: "JETS", url: "https://www.newyorkjets.com/" },
-    { name: "DUCKS", url: "https://www.raiders.com/" },
-    { name: "COYOTES", url: "https://www.philadelphiaeagles.com/" },
-    { name: "FLAMES", url: "https://www.steelers.com" },
-    { name: "OILERS", url: "https://www.49ers.com" },
-    { name: "KINGS", url: "https://www.seahawks.com" },
-    { name: "SHARKS", url: "https://www.buccaneers.com/" },
-    { name: "CANUCKS", url: "https://www.titansonline.com/" },
-    { name: "GOLDEN KNIGHTS", url: "https://www.redskins.com" }
+    {
+      name: "CAROLINA HURRICANES",
+      url: "https://www.thepncarena.com/teams/detail/carolina_hurricanes"
+    },
+    { name: "COLUMBUS BLUE JACKETS", url: "https://www.nhl.com/bluejackets" },
+    { name: "NEW JERSEY DEVILS", url: "https://www.nhl.com/devils" },
+    { name: "NEW YORK ISLANDERS", url: "https://www.nhl.com/islanders" },
+    { name: "NEW YORK RANGERS", url: "https://www.nhl.com/rangers" },
+    { name: "PHILADELPHIA FLYERS", url: "https://www.nhl.com/flyers" },
+    { name: "PITTSBURGH PENGUINS", url: "https://www.nhl.com/penguins" },
+    { name: "WASHINGTON CAPITALS", url: "https://www.nhl.com/capitals" },
+    { name: "BOSTON BRUINS", url: "https://www.nhl.com/bruins" },
+    { name: "BUFFALO SABRES", url: "https://www.nhl.com/sabres" },
+    { name: "DETROIT RED WINGS", url: "https://www.nhl.com/redwings" },
+    { name: "FLORIDA PANTHERS", url: "https://www.nhl.com/panthers" },
+    { name: "MONTREAL CANADIENS", url: "https://www.nhl.com/canadiens" },
+    { name: "OTTAWA SENATORS", url: "https://www.nhl.com/senators" },
+    { name: "TAMPA BAY LIGHTNING", url: "https://www.nhl.com/lightning" },
+    { name: "TORONTO MAPLE LEAFS", url: "https://www.nhl.com/mapleleafs" },
+    { name: "CHICAGO BLACKHAWKS", url: "https://www.nhl.com/blackhawks" },
+    { name: "COLORADO AVALANCHE", url: "https://www.nhl.com/avalanche" },
+    { name: "DALLAS STARS", url: "https://www.nhl.com/stars" },
+    { name: "MINNESOTA WILD", url: "https://www.nhl.com/wild" },
+    { name: "NASHVILLE PREDATORS", url: "https://www.nhl.com/predators" },
+    { name: "ST LOUIS BLUES", url: "https://www.nhl.com/blues" },
+    { name: "WINNIPEG JETS", url: "https://www.nhl.com/jets" },
+    { name: "ANAHEIM DUCKS", url: "https://www.nhl.com/ducks" },
+    { name: "ARIZONA COYOTES", url: "https://www.nhl.com/coyotes" },
+    { name: "CALGARY FLAMES", url: "https://www.nhl.com/flames" },
+    { name: "EDMONTON OILERS", url: "https://www.nhl.com/oilers" },
+    { name: "LA KINGS", url: "https://www.nhl.com/kings" },
+    { name: "SAN JOSE SHARKS", url: "https://www.nhl.com/sharks" },
+    { name: "VANCOUVER CANUCKS", url: "https://www.nhl.com/canucks" },
+    { name: "VEGAS GOLDEN KNIGHTS", url: "https://www.nhl.com/goldenknights" }
   ];
 
   // Gets Array String
@@ -134,6 +137,9 @@ $(document).ready(function() {
       $("#divId1" + [i]).html(
         "<br><p>" + title + "<br><br>" + content + "</p><br><br>"
       );
+      document.getElementById("divId1" + [i]).style.border = "outset #808080";
+      document.getElementById("divId1" + [i]).style.borderWidth = "thin";
+      
     }
   });
 

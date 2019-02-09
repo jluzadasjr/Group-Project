@@ -3,6 +3,7 @@
 p {
   font-family: 'Eczar', serif;
   font-size: 20px;
+  border-style: solid;
 }
 
 h3 {
@@ -22,7 +23,9 @@ a {
   font-size: 50px;
 }
 
+
 /* NBA CSS */
+
 
 input[type="text"] {
   width: 130px;
@@ -51,12 +54,25 @@ input[type="text"]:focus {
 
 /* MLB CSS */
 
+#mlb-headlines {
+  border-style: dotted dashed solid double;
+}
+
 #mlb-scores {
   font-family: 'Taviraj', serif;
 
 }
 
+#mlb-logo {
+  margin-bottom: 50px;
+
+}
+
 /* NFL CSS */
+
+#nfl-headlines {
+  border-style: dotted dashed solid double;
+}
 
 #nfl-scores {
   font-family: 'Taviraj', serif;
@@ -64,6 +80,9 @@ input[type="text"]:focus {
 }
 
 /* NHL CSS */
+
+#nhl-headlines 
+
 #nhl-scores {
   font-family: 'Taviraj', serif;
   

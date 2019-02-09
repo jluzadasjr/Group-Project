@@ -27,38 +27,38 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Needs URLS
+  // URLS done
   const MLBArray = [
-    { name: "ORIOLES", url: "orioles.com" },
-    { name: "RED SOX", url: "redsox.com"},
-    { name: "WHITE SOX", url: "whitesox.com" },
-    { name: "INDIANS", url: "indians.com" },
-    { name: "DIAMONDBACKS", url: "dbacks.com" },
-    { name: "BRAVES", url: "braves.com" },
-    { name: "CUBS", url: "cubs.com" },
-    { name: "REDS", url: "reds.com" },
-    { name: "TIGERS", url: "tigers.com" },
-    { name: "ASTROS", url: "astros.com" },
-    { name: "ROYALS", url: "royals.com" },
-    { name: "ANGELS", url: "angels.com" },
-    { name: "ROCKIES", url: "Rockies.com" },
-    { name: "DODGERS", url: "dodgers.com" },
-    { name: "MARLINS", url: "marlins.com" },
-    { name: "BREWERS", url: "brewers.com" },
-    { name: "TWINS", url: "twinsbaseball.com" },
-    { name: "YANKEES", url: "yankees.com" },
-    { name: "ATHLETICS", url: "athletics.com" },
-    { name: "MARINERS", url: "Mariners.com" },
-    { name: "METS", url: "mets.com" },
-    { name: "PHILLIES", url: "phillies.com" },
-    { name: "PIRATES", url: "pirates.com" },
-    { name: "PADRES", url: "padres.com" },
-    { name: "RAYS", url: "raysbaseball.com" },
-    { name: "RANGERS", url: "texasrangers.com" },
-    { name: "BLUE JAYS", url: "bluejays.com" },
-    { name: "GIANTS", url: "SFGiants.com" },
-    { name: "CARDINALS", url: "cardinals.com" },
-    { name: "NATIONALS", url: "nationals.com" },
+    { name: "BALTIMORE ORIOLES", url: "https://www.mlb.com/orioles" },
+    { name: "BOSTON RED SOX", url: "https://www.mlb.com/redsox"},
+    { name: "CHICAGO WHITE SOX", url: "https://www.mlb.com/whitesox" },
+    { name: "CLEVELAND INDIANS", url: "https://www.mlb.com/indians" },
+    { name: "ARIZONA DIAMONDBACKS", url: "https://www.mlb.com/dbacks" },
+    { name: "ATLANTA BRAVES", url: "https://www.mlb.com/braves" },
+    { name: "CHICAGO CUBS", url: "https://www.mlb.com/cubs" },
+    { name: "CINCINNATI REDS", url: "https://www.mlb.com/reds" },
+    { name: "DETROIT TIGERS", url: "https://www.mlb.com/tigers" },
+    { name: "HOUSTON ASTROS", url: "https://www.mlb.com/astros" },
+    { name: "KANSAS CITY ROYALS", url: "https://www.mlb.com/royals" },
+    { name: "LOS ANGELES ANGELS", url: "https://www.mlb.com/angels" },
+    { name: "COLORADO ROCKIES", url: "https://www.mlb.com/Rockies" },
+    { name: "LOS ANGELES DODGERS", url: "https://www.mlb.com/dodgers" },
+    { name: "MIAMI MARLINS", url: "https://www.mlb.com/marlins" },
+    { name: "MILWAUKEE BREWERS", url: "https://www.mlb.com/brewers" },
+    { name: "MINNESOTA TWINS", url: "https://www.mlb.com/twinsbaseball" },
+    { name: "NEW YORK YANKEES", url: "https://www.mlb.com/yankees" },
+    { name: "OAKLAND ATHLETICS", url: "https://www.mlb.com/athletics" },
+    { name: "SEATTLE MARINERS", url: "https://www.mlb.com/mariners" },
+    { name: "NEW YORK METS", url: "https://www.mlb.com/mets" },
+    { name: "PHILADELPHIA PHILLIES", url: "https://www.mlb.com/phillies" },
+    { name: "PITTSBURGH PIRATES", url: "https://www.mlb.com/pirates" },
+    { name: "SAN DIEGO PADRES", url: "https://www.mlb.com/padres" },
+    { name: "TAMPA BAY RAYS", url: "https://www.mlb.com/raysbaseball" },
+    { name: "TEXAS RANGERS", url: "https://www.mlb.com/texasrangers" },
+    { name: "TORONTO BLUE JAYS", url: "https://www.mlb.com/bluejays" },
+    { name: "SAN FRANCISCO GIANTS", url: "https://www.mlb.com/giants" },
+    { name: "ST LOUIS CARDINALS", url: "https://www.mlb.com/cardinals" },
+    { name: "WASHINGTON NATIONALS", url: "https://www.mlb.com/nationals" },
   ];
 
   // Gets Array String
@@ -132,6 +132,7 @@ $(document).ready(function() {
       $("#divId1" + [i]).html(
         "<br><p>" + title + "<br><br>" + content + "</p><br><br>"
       );
+      document.getElementById("divId1" + [i]).style.border = "outset #808080";
     }
   });
 

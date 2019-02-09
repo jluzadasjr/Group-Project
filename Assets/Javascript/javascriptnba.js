@@ -28,38 +28,37 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Needs URLS
   const NBAArray = [
-    { name: "HAWKS", url: "orioles.com" },
-    { name: "CELTICS", url: "redsox.com"},
-    { name: "NETS", url: "whitesox.com" },
-    { name: "HORNETS", url: "indians.com" },
-    { name: "BULLS", url: "dbacks.com" },
-    { name: "CAVALIERS", url: "braves.com" },
-    { name: "MAVERICKS", url: "cubs.com" },
-    { name: "NUGGETS", url: "reds.com" },
-    { name: "PISTONS", url: "tigers.com" },
-    { name: "WARRIORS", url: "astros.com" },
-    { name: "ROCKETS", url: "royals.com" },
-    { name: "PACERS", url: "angels.com" },
-    { name: "CLIPPERS", url: "Rockies.com" },
-    { name: "LAKERS", url: "dodgers.com" },
-    { name: "GRIZZLIES", url: "marlins.com" },
-    { name: "HEAT", url: "brewers.com" },
-    { name: "BUCKS", url: "twinsbaseball.com" },
-    { name: "TIMBERWOLVES", url: "yankees.com" },
-    { name: "PELICANS", url: "athletics.com" },
-    { name: "KNICKS", url: "Mariners.com" },
-    { name: "THUNDER", url: "mets.com" },
-    { name: "MAGIC", url: "phillies.com" },
-    { name: "76ERS", url: "pirates.com" },
-    { name: "SUNS", url: "padres.com" },
-    { name: "TRAIL BLAZERS", url: "raysbaseball.com" },
-    { name: "KINGS", url: "texasrangers.com" },
-    { name: "SPURS", url: "bluejays.com" },
-    { name: "RAPTORS", url: "SFGiants.com" },
-    { name: "JAZZ", url: "cardinals.com" },
-    { name: "WIZARDS", url: "nationals.com" },
+    { name: "ATLANTA HAWKS", url: "https://www.nba.com/hawks/" },
+    { name: "BOSTON CELTICS", url: "https://www.nba.com/celtics/"},
+    { name: "BROOKLYN NETS", url: "https://www.nba.com/nets/" },
+    { name: "CHARLOTTE HORNETS", url: "https://www.nba.com/hornets/" },
+    { name: "CHICAGO BULLS", url: "https://www.nba.com/bulls/" },
+    { name: "CLEVELAND CAVALIERS", url: "https://www.nba.com/cavaliers/" },
+    { name: "DALLAS MAVERICKS", url: "https://www.nba.com/mavericks/" },
+    { name: "DENVER NUGGETS", url: "https://www.nba.com/nuggets/" },
+    { name: "DETROIT PISTONS", url: "https://www.nba.com/pistons/" },
+    { name: "GOLDEN STATE WARRIORS", url: "https://www.nba.com/warriors/" },
+    { name: "HOUSTON ROCKETS", url: "https://www.nba.com/rockets/" },
+    { name: "INDIANA PACERS", url: "https://www.nba.com/pacers/" },
+    { name: "LA CLIPPERS", url: "https://www.nba.com/clippers/" },
+    { name: "LOS ANGELES LAKERS", url: "https://www.nba.com/lakers/" },
+    { name: "MEMPHIS GRIZZLIES", url: "https://www.nba.com/grizzlies/" },
+    { name: "MIAMI HEAT", url: "https://www.nba.com/heat/" },
+    { name: "MILWAUKEE BUCKS", url: "https://www.nba.com/bucks/" },
+    { name: "MINNESOTA TIMBERWOLVES", url: "https://www.nba.com/timberwolves/" },
+    { name: "NEW ORLEANS PELICANS", url: "https://www.nba.com/pelicans/" },
+    { name: "NEW YORK KNICKS", url: "https://www.nba.com/knicks/" },
+    { name: "OKLAHOMA CITY THUNDER", url: "https://www.nba.com/thunder/" },
+    { name: "ORLANDO MAGIC", url: "https://www.nba.com/magic/" },
+    { name: "PHILADELPHIA 76ERS", url: "https://www.nba.com/76ers/" },
+    { name: "PHOENIX SUNS", url: "https://www.nba.com/suns/" },
+    { name: "PORTLAND TRAIL BLAZERS", url: "https://www.nba.com/blazers/" },
+    { name: "SACRAMENTO KINGS", url: "https://www.nba.com/kings/" },
+    { name: "SAN ANTONIO SPURS", url: "https://www.nba.com/spurs/" },
+    { name: "TORONTO RAPTORS", url: "https://www.nba.com/raptors/" },
+    { name: "UTAH JAZZ", url: "https://www.nba.com/jazz/" },
+    { name: "WASHINGTON WIZARDS", url: "https://www.nba.com/wizards/" },
   ];
 
   // Gets Array String
@@ -133,6 +132,7 @@ $(document).ready(function() {
       $("#divId1" + [i]).html(
         "<br><p>" + title + "<br><br>" + content + "</p><br><br>"
       );
+      document.getElementById("divId1" + [i]).style.border = "outset #808080";
     }
   });
 
