@@ -59,6 +59,40 @@ $(document).ready(function() {
     { name: "SAN FRANCISCO GIANTS", url: "https://www.mlb.com/giants" },
     { name: "ST LOUIS CARDINALS", url: "https://www.mlb.com/cardinals" },
     { name: "WASHINGTON NATIONALS", url: "https://www.mlb.com/nationals" },
+    
+  // Needs URLS
+  const MLBArray = [
+    { name: "ORIOLES", url: "orioles.com" },
+    { name: "RED SOX", url: "redsox.com"},
+    { name: "WHITE SOX", url: "whitesox.com" },
+    { name: "INDIANS", url: "indians.com" },
+    { name: "DIAMONDBACKS", url: "dbacks.com" },
+    { name: "BRAVES", url: "braves.com" },
+    { name: "CUBS", url: "cubs.com" },
+    { name: "REDS", url: "reds.com" },
+    { name: "TIGERS", url: "tigers.com" },
+    { name: "ASTROS", url: "astros.com" },
+    { name: "ROYALS", url: "royals.com" },
+    { name: "ANGELS", url: "angels.com" },
+    { name: "ROCKIES", url: "Rockies.com" },
+    { name: "DODGERS", url: "dodgers.com" },
+    { name: "MARLINS", url: "marlins.com" },
+    { name: "BREWERS", url: "brewers.com" },
+    { name: "TWINS", url: "twinsbaseball.com" },
+    { name: "YANKEES", url: "yankees.com" },
+    { name: "ATHLETICS", url: "athletics.com" },
+    { name: "MARINERS", url: "Mariners.com" },
+    { name: "METS", url: "mets.com" },
+    { name: "PHILLIES", url: "phillies.com" },
+    { name: "PIRATES", url: "pirates.com" },
+    { name: "PADRES", url: "padres.com" },
+    { name: "RAYS", url: "raysbaseball.com" },
+    { name: "RANGERS", url: "texasrangers.com" },
+    { name: "BLUE JAYS", url: "bluejays.com" },
+    { name: "GIANTS", url: "SFGiants.com" },
+    { name: "CARDINALS", url: "cardinals.com" },
+    { name: "NATIONALS", url: "nationals.com" },
+
   ];
 
   // Gets Array String
@@ -70,7 +104,6 @@ $(document).ready(function() {
   }
   console.log(emptyArray);
   $(".awesomplete").attr("data-list", emptyArray);
-
 
 
 
@@ -100,12 +133,44 @@ $(document).ready(function() {
         }
       }
     });
+=======
+  // Search Button form input
+  $("#formInput").on("click", function(action) {
+    action.preventDefault();
+    var input = $("#searchBtn").val();
+    // $("#formInput").attr("action", "/www.google.com");
+    console.log(input);
+  });
+
+
+
+
+
+  //This is creates search restrictions to teams within the object/array & loads team page
+
+  // var userInput = prompt("hello");
+  // var capUserInput = userInput.toUpperCase();
+  // index = -1;
+  // for (var i = 0, len = NFLArray.length; i <len; i++){
+  //   if (NFLArray[i].name === capUserInput){
+  //     // index = 1;
+  //     console.log("it's there");
+  //     $("#submit-btn").attr("action", NFLArray[i].url);
+  //     window.location = NFLArray[i].url;
+  //   } else {
+  //     console.log("not there");
+  //   }
+  // }
 
   // News Search API/Google Search
   var googleQueryUrl = "";
 
   googleQueryUrl =
+
     "https://newsapi.org/v2/top-headlines?country=us&category=sports&q=mlb&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+
+    "https://newsapi.org/v2/everything?q=MLB&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -118,12 +183,19 @@ $(document).ready(function() {
 
       newDiv1 = $("<div>");
       newDiv1.attr("id", "divId1" + [i]);
+
       newDiv1.attr("href", url);
+
+      $("#divId1").attr("action", url);
+
 
       $("#mlb-headlines").append(newDiv1);
 
       $("#divId1" + [i]).on("click", function() {
+
         window.location = $(this).attr("href");
+        window.location = url;
+
       });
 
       $("#divId1" + [i]).html(
@@ -144,7 +216,11 @@ $(document).ready(function() {
   $.ajax({
     type: "GET",
     url:
+
       "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/mlb/upcoming/scoreboard.json?fordate=" +
+
+      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/mlb/current/daily_game_schedule.json?fordate=" +
+
       today,
     dataType: "json",
     async: true,
@@ -153,6 +229,7 @@ $(document).ready(function() {
     },
     data: '{ "comment" }',
     success: function(data) {
+
       var numGamesToday = data.dailygameschedule;
 
       if(numGamesToday === undefined){
@@ -182,6 +259,26 @@ $(document).ready(function() {
           
           $("#divId3" + [i]).html(
             "<p>" +
+
+      var numGamesToday = data.dailygameschedule.gameentry.length;
+
+      for (var i = 0; i < numGamesToday; i++) {
+        var homeTeam =
+          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
+        var awayTeam =
+          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
+        var date = data.dailygameschedule.gameentry[i].date;
+        var time = data.dailygameschedule.gameentry[i].time;
+        var location = data.dailygameschedule.gameentry[i].location;
+
+        newDiv3 = $("<div>");
+        newDiv3.attr("id", "divId3" + [i]);
+
+        $("#mlb-schedule").append(newDiv3);
+
+        $("#divId3" + [i]).html(
+          "<p>" +
+
             homeTeam +
             " vs " +
             awayTeam +
@@ -193,9 +290,14 @@ $(document).ready(function() {
             " " +
             time +
             "<br><br><br></p>"
+
             );
           }
         }
+
+        );
+      }
+
     }
   });
 
@@ -205,7 +307,11 @@ $(document).ready(function() {
   $.ajax({
     type: "GET",
     url:
+
       "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/MLB/upcoming/scoreboard.json?fordate=" +
+
+      "https://cors-anywhere.herokuapp.com/https://api.mysportsfeeds.com/v1.1/pull/MLB/current/scoreboard.json?fordate=" +
+
       yesterday,
     dataType: "json",
     async: true,
@@ -216,6 +322,7 @@ $(document).ready(function() {
 
     success: function(data1) {
       // Gets the total number of games for the day to loop over
+
       var numGames = data1.scoreboard.gameScore;
 
       if(numGames === undefined){
@@ -248,6 +355,27 @@ $(document).ready(function() {
       }
     }
     }
+
+      var numGames = data1.scoreboard.gameScore.length;
+
+      for (var i = 0; i < numGames; i++) {
+        awayScore = data1.scoreboard.gameScore[i].awayScore;
+        awayTeam = data1.scoreboard.gameScore[i].game.awayTeam.Abbreviation;
+
+        homeScore = data1.scoreboard.gameScore[i].homeScore;
+        homeTeam = data1.scoreboard.gameScore[i].game.homeTeam.Abbreviation;
+
+        newDiv2 = $("<div>");
+        newDiv2.attr("id", "newDivId2" + [i]);
+
+        $("#mlb-scores").append(newDiv2);
+
+        $("#newDivId2" + [i]).html(
+          homeTeam + ": " + homeScore + " vs " + awayTeam + ": " + awayScore
+        );
+      }
+    }
+
   });
 
   // Awesomplete - Lea Verou - MIT license

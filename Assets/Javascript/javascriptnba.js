@@ -29,6 +29,7 @@ $(document).ready(function() {
   var yesterday = yyyy + mm + dd;
 
 
+
   // NBA Teams and Urls
   const NBAArray = [
     { name: "ATLANTA HAWKS", url: "http://www.nba.com/teams/hawks" },
@@ -61,6 +62,40 @@ $(document).ready(function() {
     { name: "TORONTO RAPTORS", url: "http://www.nba.com/teams/raptors" },
     { name: "UTAH JAZZ", url: "http://www.nba.com/teams/jazz" },
     { name: "WASHINGTON WIZARDS", url: "http://www.nba.com/teams/wizards" },
+
+  // Needs URLS
+  const NBAArray = [
+    { name: "HAWKS", url: "orioles.com" },
+    { name: "CELTICS", url: "redsox.com"},
+    { name: "NETS", url: "whitesox.com" },
+    { name: "HORNETS", url: "indians.com" },
+    { name: "BULLS", url: "dbacks.com" },
+    { name: "CAVALIERS", url: "braves.com" },
+    { name: "MAVERICKS", url: "cubs.com" },
+    { name: "NUGGETS", url: "reds.com" },
+    { name: "PISTONS", url: "tigers.com" },
+    { name: "WARRIORS", url: "astros.com" },
+    { name: "ROCKETS", url: "royals.com" },
+    { name: "PACERS", url: "angels.com" },
+    { name: "CLIPPERS", url: "Rockies.com" },
+    { name: "LAKERS", url: "dodgers.com" },
+    { name: "GRIZZLIES", url: "marlins.com" },
+    { name: "HEAT", url: "brewers.com" },
+    { name: "BUCKS", url: "twinsbaseball.com" },
+    { name: "TIMBERWOLVES", url: "yankees.com" },
+    { name: "PELICANS", url: "athletics.com" },
+    { name: "KNICKS", url: "Mariners.com" },
+    { name: "THUNDER", url: "mets.com" },
+    { name: "MAGIC", url: "phillies.com" },
+    { name: "76ERS", url: "pirates.com" },
+    { name: "SUNS", url: "padres.com" },
+    { name: "TRAIL BLAZERS", url: "raysbaseball.com" },
+    { name: "KINGS", url: "texasrangers.com" },
+    { name: "SPURS", url: "bluejays.com" },
+    { name: "RAPTORS", url: "SFGiants.com" },
+    { name: "JAZZ", url: "cardinals.com" },
+    { name: "WIZARDS", url: "nationals.com" },
+
   ];
 
   // Gets Array String
@@ -101,30 +136,75 @@ $("#s").keypress(function(action) {
   }
 });
 
-  
+
+  // Search Button form input
+  $("#formInput").on("click", function(action) {
+    action.preventDefault();
+    var input = $("#searchBtn").val();
+    // $("#formInput").attr("action", "/www.google.com");
+    console.log(input);
+  });
+
+
+
+
+
+  //This is creates search restrictions to teams within the object/array & loads team page
+
+  // var userInput = prompt("hello");
+  // var capUserInput = userInput.toUpperCase();
+  // index = -1;
+  // for (var i = 0, len = NFLArray.length; i <len; i++){
+  //   if (NFLArray[i].name === capUserInput){
+  //     // index = 1;
+  //     console.log("it's there");
+  //     $("#submit-btn").attr("action", NFLArray[i].url);
+  //     window.location = NFLArray[i].url;
+  //   } else {
+  //     console.log("not there");
+  //   }
+  // }
+
+
   // News Search API/Google Search
   var googleQueryUrl = "";
 
   googleQueryUrl =
+
     "https://newsapi.org/v2/top-headlines?country=us&category=sports&q=NBA&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+
+    "https://newsapi.org/v2/everything?q=NBA&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
   }).then(function(response) {
     console.log(response);
+
     for (var i = 0; i < 10; i++) {
+
+    for (var i = 0; i < 5; i++) {
+
       var title = response.articles[i].title;
       var content = response.articles[i].content;
       var url = response.articles[i].url;
 
       newDiv1 = $("<div>");
       newDiv1.attr("id", "divId1" + [i]);
+
       newDiv1.attr("href", url);
+
+      $("#divId1").attr("action", url);
+
 
       $("#nba-headlines").append(newDiv1);
 
       $("#divId1" + [i]).on("click", function() {
+
         window.location = $(this).attr("href");
+
+        window.location = url;
+
       });
 
       $("#divId1" + [i]).html(
@@ -139,7 +219,6 @@ $("#s").keypress(function(action) {
   var sportsFeedsKey = "d2b26d10-70fd-44f2-a5fb-08a4fb";
   var sportsFeedsPass = "Thisisauselesspassword!";
 
-
   // Gets Current Schedule
   $.ajax({
     type: "GET",
@@ -153,6 +232,7 @@ $("#s").keypress(function(action) {
     },
     data: '{ "comment" }',
     success: function(data) {
+
       var numGamesToday = data.dailygameschedule;
 
       if (numGamesToday === undefined){
@@ -182,6 +262,26 @@ $("#s").keypress(function(action) {
           
           $("#divId3" + [i]).html(
             "<p>" +
+
+      var numGamesToday = data.dailygameschedule.gameentry.length;
+
+      for (var i = 0; i < numGamesToday; i++) {
+        var homeTeam =
+          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
+        var awayTeam =
+          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
+        var date = data.dailygameschedule.gameentry[i].date;
+        var time = data.dailygameschedule.gameentry[i].time;
+        var location = data.dailygameschedule.gameentry[i].location;
+
+        newDiv3 = $("<div>");
+        newDiv3.attr("id", "divId3" + [i]);
+
+        $("#nba-schedule").append(newDiv3);
+
+        $("#divId3" + [i]).html(
+          "<p>" +
+
             homeTeam +
             " vs " +
             awayTeam +
@@ -193,9 +293,14 @@ $("#s").keypress(function(action) {
             " " +
             time +
             "<br><br><br></p>"
+
             );
           }
         }
+
+        );
+      }
+
     }
   });
 
