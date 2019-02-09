@@ -12,7 +12,6 @@ $(document).ready(function() {
   }
   var today = yyyy + mm + dd;
 
-
   console.log(today);
 
   // Calculates Previous day
@@ -28,39 +27,42 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Needs URLS
+  // Urls done
   const NHLArray = [
-    { name: "HURRICANES", url: "https://www.azcardinals.com/" },
-    { name: "BLUE JACKETS", url: "https://www.atlantafalcons.com" },
-    { name: "DEVILS", url: "https://www.baltimoreravens.com" },
-    { name: "ISLANDERS", url: "https://www.buffalobills.com/" },
-    { name: "RANGERS", url: "https://www.panthers.com/" },
-    { name: "FLYERS", url: "https://www.chicagobears.com" },
-    { name: "PENGUINS", url: "https://www.bengals.com" },
-    { name: "CAPITALS", url: "https://www.clevelandbrowns.com" },
-    { name: "BRUINS", url: "https://www.dallascowboys.com" },
-    { name: "SABRES", url: "https://www.denverbroncos.com" },
-    { name: "RED WINGS", url: "https://www.detroitlions.com/" },
-    { name: "PANTHERS", url: "https://www.packers.com/" },
-    { name: "CANADIENS", url: "https://www.houstontexans.com" },
-    { name: "SENATORS", url: "https://www.colts.com" },
-    { name: "LIGHTNING", url: "https://www.jaguars.com" },
-    { name: "MAPLE LEAFS", url: "https://www.chiefs.com" },
-    { name: "BLACKHAWKS", url: "https://www.therams.com" },
-    { name: "AVALANCHE", url: "https://www.miamidolphins.com" },
-    { name: "STARS", url: "https://www.vikings.com" },
-    { name: "WILD", url: "https://www.patriots.com" },
-    { name: "PREDATORS", url: "https://www.neworleanssaints.com" },
-    { name: "BLUES", url: "https://www.giants.com/" },
-    { name: "JETS", url: "https://www.newyorkjets.com/" },
-    { name: "DUCKS", url: "https://www.raiders.com/" },
-    { name: "COYOTES", url: "https://www.philadelphiaeagles.com/" },
-    { name: "FLAMES", url: "https://www.steelers.com" },
-    { name: "OILERS", url: "https://www.49ers.com" },
-    { name: "KINGS", url: "https://www.seahawks.com" },
-    { name: "SHARKS", url: "https://www.buccaneers.com/" },
-    { name: "CANUCKS", url: "https://www.titansonline.com/" },
-    { name: "GOLDEN KNIGHTS", url: "https://www.redskins.com" }
+    {
+      name: "CAROLINA HURRICANES",
+      url: "https://www.thepncarena.com/teams/detail/carolina_hurricanes"
+    },
+    { name: "COLUMBUS BLUE JACKETS", url: "https://www.nhl.com/bluejackets" },
+    { name: "NEW JERSEY DEVILS", url: "https://www.nhl.com/devils" },
+    { name: "NEW YORK ISLANDERS", url: "https://www.nhl.com/islanders" },
+    { name: "NEW YORK RANGERS", url: "https://www.nhl.com/rangers" },
+    { name: "PHILADELPHIA FLYERS", url: "https://www.nhl.com/flyers" },
+    { name: "PITTSBURGH PENGUINS", url: "https://www.nhl.com/penguins" },
+    { name: "WASHINGTON CAPITALS", url: "https://www.nhl.com/capitals" },
+    { name: "BOSTON BRUINS", url: "https://www.nhl.com/bruins" },
+    { name: "BUFFALO SABRES", url: "https://www.nhl.com/sabres" },
+    { name: "DETROIT RED WINGS", url: "https://www.nhl.com/redwings" },
+    { name: "FLORIDA PANTHERS", url: "https://www.nhl.com/panthers" },
+    { name: "MONTREAL CANADIENS", url: "https://www.nhl.com/canadiens" },
+    { name: "OTTAWA SENATORS", url: "https://www.nhl.com/senators" },
+    { name: "TAMPA BAY LIGHTNING", url: "https://www.nhl.com/lightning" },
+    { name: "TORONTO MAPLE LEAFS", url: "https://www.nhl.com/mapleleafs" },
+    { name: "CHICAGO BLACKHAWKS", url: "https://www.nhl.com/blackhawks" },
+    { name: "COLORADO AVALANCHE", url: "https://www.nhl.com/avalanche" },
+    { name: "DALLAS STARS", url: "https://www.nhl.com/stars" },
+    { name: "MINNESOTA WILD", url: "https://www.nhl.com/wild" },
+    { name: "NASHVILLE PREDATORS", url: "https://www.nhl.com/predators" },
+    { name: "ST LOUIS BLUES", url: "https://www.nhl.com/blues" },
+    { name: "WINNIPEG JETS", url: "https://www.nhl.com/jets" },
+    { name: "ANAHEIM DUCKS", url: "https://www.nhl.com/ducks" },
+    { name: "ARIZONA COYOTES", url: "https://www.nhl.com/coyotes" },
+    { name: "CALGARY FLAMES", url: "https://www.nhl.com/flames" },
+    { name: "EDMONTON OILERS", url: "https://www.nhl.com/oilers" },
+    { name: "LA KINGS", url: "https://www.nhl.com/kings" },
+    { name: "SAN JOSE SHARKS", url: "https://www.nhl.com/sharks" },
+    { name: "VANCOUVER CANUCKS", url: "https://www.nhl.com/canucks" },
+    { name: "VEGAS GOLDEN KNIGHTS", url: "https://www.nhl.com/goldenknights" }
   ];
 
   // Gets Array String
@@ -70,39 +72,39 @@ $(document).ready(function() {
     JSON.stringify(NHLString);
     emptyArray.push(NHLString);
   }
-  console.log(emptyArray);
   $(".awesomplete").attr("data-list", emptyArray);
 
 
 
 
-  // Search Button form input
-  $("#formInput").on("click", function(action) {
-    action.preventDefault();
-    var input = $("#searchBtn").val();
-    // $("#formInput").attr("action", "/www.google.com");
-    console.log(input);
+  // This is creates search restrictions to teams within the object/array & loads team page
+  $("#s").keypress(function(action) {
+  
+
+    if (action.which == 13) {
+      var input = $("#s").val();
+      var capUserInput = input.toUpperCase();
+      index = -1;
+
+      var modal = $("#pageModal");
+      var span = $(".close")[0];
+
+      for (var i = 0, len = NHLArray.length; i < len; i++) {
+        if (NHLArray[i].name === capUserInput) {
+          $("#s").attr("action", NHLArray[i].url);
+          window.location = NHLArray[i].url;
+        } else {
+          // Modal display
+          setTimeout(function(){
+            modal[0].style.display = "block";
+          }, 1000);
+          span.onclick = function() {
+            modal[0].style.display = "none";
+          };
+        }
+      }
+    }
   });
-
-
-
-
-
-  //This is creates search restrictions to teams within the object/array & loads team page
-
-  // var userInput = prompt("hello");
-  // var capUserInput = userInput.toUpperCase();
-  // index = -1;
-  // for (var i = 0, len = NFLArray.length; i <len; i++){
-  //   if (NFLArray[i].name === capUserInput){
-  //     // index = 1;
-  //     console.log("it's there");
-  //     $("#submit-btn").attr("action", NFLArray[i].url);
-  //     window.location = NFLArray[i].url;
-  //   } else {
-  //     console.log("not there");
-  //   }
-  // }
 
 
 
@@ -110,7 +112,7 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+  "https://newsapi.org/v2/everything?language=en&q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -123,27 +125,25 @@ $(document).ready(function() {
 
       newDiv1 = $("<div>");
       newDiv1.attr("id", "divId1" + [i]);
-      $("#divId1").attr("action", url);
+      newDiv1.attr("href", url);
 
       $("#nhl-headlines").append(newDiv1);
 
       $("#divId1" + [i]).on("click", function() {
-        window.location = url;
+        window.location = $(this).attr("href");
       });
 
       $("#divId1" + [i]).html(
         "<br><p>" + title + "<br><br>" + content + "</p><br><br>"
       );
+      document.getElementById("divId1" + [i]).style.border = "outset #808080";
+      document.getElementById("divId1" + [i]).style.borderWidth = "thin";
     }
   });
-
-
 
   // Sports Feed API
   var sportsFeedsKey = "d2b26d10-70fd-44f2-a5fb-08a4fb";
   var sportsFeedsPass = "Thisisauselesspassword!";
-
-
 
   // Gets Current Schedule
   $.ajax({
@@ -158,24 +158,35 @@ $(document).ready(function() {
     },
     data: '{ "comment" }',
     success: function(data) {
-      var numGamesToday = data.dailygameschedule.gameentry.length;
+      var numGamesToday = data.dailygameschedule;
 
-      for (var i = 0; i < numGamesToday; i++) {
-        var homeTeam =
-          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
-        var awayTeam =
-          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
-        var date = data.dailygameschedule.gameentry[i].date;
-        var time = data.dailygameschedule.gameentry[i].time;
-        var location = data.dailygameschedule.gameentry[i].location;
-
+      if(numGamesToday === undefined){
         newDiv3 = $("<div>");
         newDiv3.attr("id", "divId3" + [i]);
-
+        
         $("#nhl-schedule").append(newDiv3);
-
+        
         $("#divId3" + [i]).html(
-          "<p>" +
+          "<p>There are no games today</p>");
+      } else {
+        numGamesToday = data.dailygameschedule.gameentry.length;
+        
+        for (var i = 0; i < numGamesToday; i++) {
+          var homeTeam =
+          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
+          var awayTeam =
+          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
+          var date = data.dailygameschedule.gameentry[i].date;
+          var time = data.dailygameschedule.gameentry[i].time;
+          var location = data.dailygameschedule.gameentry[i].location;
+          
+          newDiv3 = $("<div>");
+          newDiv3.attr("id", "divId3" + [i]);
+          
+          $("#nhl-schedule").append(newDiv3);
+          
+          $("#divId3" + [i]).html(
+            "<p>" +
             homeTeam +
             " vs " +
             awayTeam +
@@ -187,12 +198,11 @@ $(document).ready(function() {
             " " +
             time +
             "<br><br><br></p>"
-        );
+            );
+          }
+        }
       }
-    }
   });
-
-
 
   // Gets yesterdays Scores
   $.ajax({
