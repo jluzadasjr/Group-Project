@@ -5,10 +5,12 @@
     display: block;
     position: relative;
     z-index: 2;
+    
 }
 
 .leagueName:hover{
     font-size: 6vw;
+    -webkit-transition: font-size 2s;
 }
 
 .leagueImg{
