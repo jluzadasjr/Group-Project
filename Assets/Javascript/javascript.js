@@ -112,7 +112,7 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?language=en&q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+  "https://newsapi.org/v2/everything?language=en&q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -156,24 +156,35 @@ $(document).ready(function() {
     },
     data: '{ "comment" }',
     success: function(data) {
-      var numGamesToday = data.dailygameschedule.gameentry.length;
+      var numGamesToday = data.dailygameschedule;
 
-      for (var i = 0; i < numGamesToday; i++) {
-        var homeTeam =
-          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
-        var awayTeam =
-          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
-        var date = data.dailygameschedule.gameentry[i].date;
-        var time = data.dailygameschedule.gameentry[i].time;
-        var location = data.dailygameschedule.gameentry[i].location;
-
+      if(numGamesToday === undefined){
         newDiv3 = $("<div>");
         newDiv3.attr("id", "divId3" + [i]);
-
+        
         $("#nhl-schedule").append(newDiv3);
-
+        
         $("#divId3" + [i]).html(
-          "<p>" +
+          "<p>There are no games today</p>");
+      } else {
+        numGamesToday = data.dailygameschedule.gameentry.length;
+        
+        for (var i = 0; i < numGamesToday; i++) {
+          var homeTeam =
+          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
+          var awayTeam =
+          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
+          var date = data.dailygameschedule.gameentry[i].date;
+          var time = data.dailygameschedule.gameentry[i].time;
+          var location = data.dailygameschedule.gameentry[i].location;
+          
+          newDiv3 = $("<div>");
+          newDiv3.attr("id", "divId3" + [i]);
+          
+          $("#nhl-schedule").append(newDiv3);
+          
+          $("#divId3" + [i]).html(
+            "<p>" +
             homeTeam +
             " vs " +
             awayTeam +
@@ -185,9 +196,10 @@ $(document).ready(function() {
             " " +
             time +
             "<br><br><br></p>"
-        );
+            );
+          }
+        }
       }
-    }
   });
 
   // Gets yesterdays Scores

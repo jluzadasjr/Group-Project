@@ -106,7 +106,7 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?language=en&q=mlb&sortBy=publishedAt&sortBy=relevancy&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+    "https://newsapi.org/v2/top-headlines?country=us&category=sports&q=mlb&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
@@ -120,8 +120,6 @@ $(document).ready(function() {
       newDiv1 = $("<div>");
       newDiv1.attr("id", "divId1" + [i]);
       newDiv1.attr("href", url);
-      console.log(url);
-      // $("#divId1").attr("action", url);
 
       $("#mlb-headlines").append(newDiv1);
 

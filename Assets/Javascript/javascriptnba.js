@@ -28,38 +28,39 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Needs URLS
+
+  // NBA Teams and Urls
   const NBAArray = [
-    { name: "ATLANTA HAWKS", url: "orioles.com" },
-    { name: "BOSTON CELTICS", url: "redsox.com"},
-    { name: "BROOKLYN NETS", url: "whitesox.com" },
-    { name: "CHARLOTTE HORNETS", url: "indians.com" },
-    { name: "CHICAGO BULLS", url: "dbacks.com" },
-    { name: "CLEVELAND CAVALIERS", url: "braves.com" },
-    { name: "DALLAS MAVERICKS", url: "cubs.com" },
-    { name: "DENVER NUGGETS", url: "reds.com" },
-    { name: "DETROIT PISTONS", url: "tigers.com" },
-    { name: "GOLDEN STATE WARRIORS", url: "astros.com" },
-    { name: "HOUSTON ROCKETS", url: "royals.com" },
-    { name: "INDIANA PACERS", url: "angels.com" },
-    { name: "LA CLIPPERS", url: "Rockies.com" },
-    { name: "LOS ANGELES LAKERS", url: "dodgers.com" },
-    { name: "MEMPHIS GRIZZLIES", url: "marlins.com" },
-    { name: "MIAMI HEAT", url: "brewers.com" },
-    { name: "MILWAUKEE BUCKS", url: "twinsbaseball.com" },
-    { name: "MINNESOTA TIMBERWOLVES", url: "yankees.com" },
-    { name: "NEW ORLEANS PELICANS", url: "athletics.com" },
-    { name: "NEW YORK KNICKS", url: "Mariners.com" },
-    { name: "OKLAHOMA CITY THUNDER", url: "mets.com" },
-    { name: "ORLANDO MAGIC", url: "phillies.com" },
-    { name: "PHILADELPHIA 76ERS", url: "pirates.com" },
-    { name: "PHOENIX SUNS", url: "padres.com" },
-    { name: "PORTLAND TRAIL BLAZERS", url: "raysbaseball.com" },
-    { name: "SACRAMENTO KINGS", url: "texasrangers.com" },
-    { name: "SAN ANTONIO SPURS", url: "bluejays.com" },
-    { name: "TORONTO RAPTORS", url: "SFGiants.com" },
-    { name: "UTAH JAZZ", url: "cardinals.com" },
-    { name: "WASHINGTON WIZARDS", url: "nationals.com" },
+    { name: "ATLANTA HAWKS", url: "http://www.nba.com/teams/hawks" },
+    { name: "BOSTON CELTICS", url: "http://www.nba.com/teams/celtics"},
+    { name: "BROOKLYN NETS", url: "http://www.nba.com/teams/nets" },
+    { name: "CHARLOTTE HORNETS", url: "http://www.nba.com/teams/hornets" },
+    { name: "CHICAGO BULLS", url: "http://www.nba.com/teams/bulls" },
+    { name: "CLEVELAND CAVALIERS", url: "http://www.nba.com/teams/cavaliers" },
+    { name: "DALLAS MAVERICKS", url: "http://www.nba.com/teams/mavericks" },
+    { name: "DENVER NUGGETS", url: "http://www.nba.com/teams/nuggets" },
+    { name: "DETROIT PISTONS", url: "http://www.nba.com/teams/pistons" },
+    { name: "GOLDEN STATE WARRIORS", url: "http://www.nba.com/teams/warriors" },
+    { name: "HOUSTON ROCKETS", url: "http://www.nba.com/teams/rockets" },
+    { name: "INDIANA PACERS", url: "http://www.nba.com/teams/pacers" },
+    { name: "LA CLIPPERS", url: "http://www.nba.com/teams/clippers" },
+    { name: "LOS ANGELES LAKERS", url: "http://www.nba.com/teams/lakers" },
+    { name: "MEMPHIS GRIZZLIES", url: "http://www.nba.com/teams/grizzlies" },
+    { name: "MIAMI HEAT", url: "http://www.nba.com/teams/heat" },
+    { name: "MILWAUKEE BUCKS", url: "http://www.nba.com/teams/bucks" },
+    { name: "MINNESOTA TIMBERWOLVES", url: "http://www.nba.com/teams/timberwolves" },
+    { name: "NEW ORLEANS PELICANS", url: "http://www.nba.com/teams/pelicans" },
+    { name: "NEW YORK KNICKS", url: "http://www.nba.com/teams/knicks" },
+    { name: "OKLAHOMA CITY THUNDER", url: "http://www.nba.com/teams/thunder" },
+    { name: "ORLANDO MAGIC", url: "http://www.nba.com/teams/magic" },
+    { name: "PHILADELPHIA 76ERS", url: "http://www.nba.com/teams/sixers" },
+    { name: "PHOENIX SUNS", url: "http://www.nba.com/teams/suns" },
+    { name: "PORTLAND TRAIL BLAZERS", url: "http://www.nba.com/teams/blazers" },
+    { name: "SACRAMENTO KINGS", url: "http://www.nba.com/teams/kings" },
+    { name: "SAN ANTONIO SPURS", url: "http://www.nba.com/teams/spurs" },
+    { name: "TORONTO RAPTORS", url: "http://www.nba.com/teams/raptors" },
+    { name: "UTAH JAZZ", url: "http://www.nba.com/teams/jazz" },
+    { name: "WASHINGTON WIZARDS", url: "http://www.nba.com/teams/wizards" },
   ];
 
   // Gets Array String
@@ -73,7 +74,7 @@ $(document).ready(function() {
   $(".awesomplete").attr("data-list", emptyArray);
 
 
-// This is creates search restrictions to teams within the object/array & loads team page
+// This creates search restrictions to teams within the object/array & loads team page
 $("#s").keypress(function(action) {
   
   if (action.which == 13) {
@@ -106,13 +107,13 @@ $("#s").keypress(function(action) {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?language=en&q=NBA&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+    "https://newsapi.org/v2/top-headlines?country=us&category=sports&q=NBA&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 10; i++) {
       var title = response.articles[i].title;
       var content = response.articles[i].content;
       var url = response.articles[i].url;
@@ -140,7 +141,6 @@ $("#s").keypress(function(action) {
   var sportsFeedsPass = "Thisisauselesspassword!";
 
 
-
   // Gets Current Schedule
   $.ajax({
     type: "GET",
@@ -154,24 +154,35 @@ $("#s").keypress(function(action) {
     },
     data: '{ "comment" }',
     success: function(data) {
-      var numGamesToday = data.dailygameschedule.gameentry.length;
+      var numGamesToday = data.dailygameschedule;
 
-      for (var i = 0; i < numGamesToday; i++) {
-        var homeTeam =
-          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
-        var awayTeam =
-          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
-        var date = data.dailygameschedule.gameentry[i].date;
-        var time = data.dailygameschedule.gameentry[i].time;
-        var location = data.dailygameschedule.gameentry[i].location;
-
+      if (numGamesToday === undefined){
         newDiv3 = $("<div>");
         newDiv3.attr("id", "divId3" + [i]);
-
+        
         $("#nba-schedule").append(newDiv3);
-
+        
         $("#divId3" + [i]).html(
-          "<p>" +
+          "<p>There are no games today</p>");
+      } else {
+        numGamesToday = data.dailygameschedule.gameentry.length;
+        
+        for (var i = 0; i < numGamesToday; i++) {
+          var homeTeam =
+          data.dailygameschedule.gameentry[i].homeTeam.Abbreviation;
+          var awayTeam =
+          data.dailygameschedule.gameentry[i].awayTeam.Abbreviation;
+          var date = data.dailygameschedule.gameentry[i].date;
+          var time = data.dailygameschedule.gameentry[i].time;
+          var location = data.dailygameschedule.gameentry[i].location;
+          
+          newDiv3 = $("<div>");
+          newDiv3.attr("id", "divId3" + [i]);
+          
+          $("#nba-schedule").append(newDiv3);
+          
+          $("#divId3" + [i]).html(
+            "<p>" +
             homeTeam +
             " vs " +
             awayTeam +
@@ -183,8 +194,9 @@ $("#s").keypress(function(action) {
             " " +
             time +
             "<br><br><br></p>"
-        );
-      }
+            );
+          }
+        }
     }
   });
 
