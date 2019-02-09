@@ -80,7 +80,6 @@ $(document).ready(function() {
       if (action.which == 13) {
         var input = $("#s").val();
         var capUserInput = input.toUpperCase();
-        index = -1;
   
         var modal = $("#pageModal");
         var span = $(".close")[0];
@@ -155,7 +154,6 @@ $(document).ready(function() {
     data: '{ "comment" }',
     success: function(data) {
       var numGamesToday = data.dailygameschedule;
-      // gameentry;
 
       if(numGamesToday === undefined){
         newDiv3 = $("<div>");

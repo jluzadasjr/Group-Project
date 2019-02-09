@@ -84,7 +84,6 @@ $(document).ready(function() {
     if (action.which == 13) {
       var input = $("#s").val();
       var capUserInput = input.toUpperCase();
-      index = -1;
 
       var modal = $("#pageModal");
       var span = $(".close")[0];
