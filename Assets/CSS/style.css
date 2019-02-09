@@ -1,4 +1,33 @@
+/* Overall css*/ 
+
+p {
+  font-family: 'Eczar', serif;
+  font-size: 20px;
+  border-style: solid;
+}
+
+h3 {
+  font-family: 'Exo 2', sans-serif;
+}
+
+a {
+  font-family: 'Exo 2', sans-serif;
+}
+
+#nav-title {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+
+
+
+
 /* NBA CSS */
+
 
 input[type="text"] {
   width: 130px;
@@ -21,11 +50,103 @@ input[type="text"]:focus {
   margin-right: auto;
 }
 
+#nba-scores {
+  font-family: 'Taviraj', serif;
+}
+
 /* MLB CSS */
+
+#mlb-headlines {
+  border-style: dotted dashed solid double;
+}
+
+#mlb-scores {
+  font-family: 'Taviraj', serif;
+
+}
+
+#mlb-logo {
+  margin-bottom: 50px;
+
+}
 
 /* NFL CSS */
 
+#nfl-headlines {
+  border-style: dotted dashed solid double;
+}
+
+#nfl-scores {
+  font-family: 'Taviraj', serif;
+  
+}
+
 /* NHL CSS */
+
+#nhl-headlines 
+
+#nhl-scores {
+  font-family: 'Taviraj', serif;
+  
+}
+
+/* Home Page CSS */
+.leagueName{
+  font-family: 'Times New Roman', Times, serif;
+  color: red;
+  font-size: 5vw;
+  display: block;
+  position: relative;
+  z-index: 2;
+  
+}
+
+.leagueName:hover{
+  font-size: 6vw;
+  -webkit-transition: font-size 2s;
+}
+
+.leagueName:active{
+  background-color: white;
+}
+
+.leagueImg{
+  position: absolute;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto 0 20px;
+  left: 0px;
+}
+
+/* .card{
+  padding: 8px;
+  min-height: 400px;
+  display: inline;
+} */
+
+
+nav{
+  background-color: black;
+}
+
+.container{
+  width: 100%;
+}
+
+
+
+
+@media only screen and (min-width: 2000px) {
+  .leagueName {
+    visibility: hidden;
+  }
+}
+
+.liveStream{
+  transition:0s;
+}
+
+
 
 /* Auto Complete Plugin */
 
