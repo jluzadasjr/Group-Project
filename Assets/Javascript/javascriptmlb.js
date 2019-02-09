@@ -130,8 +130,8 @@ $(document).ready(function() {
       $("#divId1" + [i]).html(
         "<br><p>" + title + "<br><br>" + content + "</p><br><br>"
       );
-      document.getElementById("divId1" + [i]).style.border = "outset #808080";
-      document.getElementById("divId1" + [i]).style.borderWidth = "thin";
+      document.getElementById("divId" + [i]).style.border = "outset #808080";
+      document.getElementById("divId" + [i]).style.borderWidth = "thin";
     }
   });
 
