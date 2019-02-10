@@ -17,10 +17,10 @@
     <link rel="stylesheet" href="./Assets/CSS/style.css" />
     <!-- jQuery -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.js"
-      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-      crossorigin="anonymous"
-    ></script>
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"
+  ></script>
   </head>
   <body>
       <header class="nba-header">
@@ -44,14 +44,14 @@
 
   <div class="row">
     <div class="col s12 m6 l6 card z-depth-2">
-  <a id="newImg2" href="nba.html">
+  <a id="newImg2" href="./nba.html">
   <img class="responsive-img leagueImg" src="./Assets/images/nba.png"> 
   <h1 class="leagueName col s12 l12 right-align">NBA</h1>
   </a>
   </div>  
 
   <div class="col s12 m6 l6 card z-depth-2">
-  <a id="newImg" href="nfl.html">
+  <a id="newImg" href="./nfl.html">
   <img class="responsive-img leagueImg" src="./Assets/images/nfl.png"> 
   <h1 class="leagueName col s12 l12 right-align">NFL</h1>
   </a>
@@ -60,14 +60,14 @@
 
   <div class="row">
     <div class="col s12 m6 l6 card z-depth-2">        
-    <a id="newImg4" href="mlb.html">
+    <a id="newImg4" href="./mlb.html">
     <img class="responsive-img leagueImg" src="./Assets/images/mlb.png"> 
     <h1 class="leagueName col s12 l12 right-align">MLB</h1>
     </a>
     </div>
 
     <div class="col s12 m6 l6 card z-depth-2">
-    <a id="newImg3" href="nhl.html">  
+    <a id="newImg3" href="./nhl.html">  
     <img class="responsive-img leagueImg" src="./Assets/images/nhl.png"> 
     <h1 class="leagueName col s12 l12 right-align">NHL</h1>
     </a>  
@@ -84,12 +84,12 @@
 
   </div>
 
-  <img id="imgChange" class="col s4 responsive-img" src="./Assets/images/download.jpg">
+  <img id="imgChange" class="col s4 responsive-img" src="">
 
   </div>
 
     <!-- JavaScript -->
-    <script src="./Assets/Javascript/javascript.js"></script>
+    <script src="./Assets/Javascript/indexJavaScript.js"></script>
 
     <script>
      $("#newImg").hover(function(){
@@ -108,7 +108,7 @@
    });
 
    $("#newImg4").hover(function(){
-      $('#imgChange').attr('src','./Assets/images/download4.jpg');
+      $('#imgChange').attr('src', "./Assets/images/download4.jpg");
       $('#liveStream').attr('src','https://livestream.com/accounts/1160789/events/2727314/player?width=640&height=360&enableInfoAndActivity=true&defaultDrawer=&autoPlay=true&mute=false');
    });
    
