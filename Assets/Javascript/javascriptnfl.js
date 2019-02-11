@@ -28,7 +28,7 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // URLS done Names need completing
+  // NFL Teams & Links
   const NFLArray = [
     { name: "ARIZONA CARDINALS", url: "https://www.azcardinals.com/" },
     { name: "ATLANTA FALCONS", url: "https://www.atlantafalcons.com"},
@@ -63,7 +63,7 @@ $(document).ready(function() {
     { name: "WASHINGTON REDSKINS", url: "https://www.redskins.com" }
   ];
 
-  // Gets Array String
+  // Gets Array String for auto complete
   emptyArray = [];
   for (var i = 0; i < NFLArray.length; i++) {
     NFLString = NFLArray[i].name;
@@ -109,13 +109,13 @@ $("#s").keypress(function(action) {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/everything?language=en&q=NFL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+    "https://newsapi.org/v2/everything?language=en&q=NFL&pageSize=10&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 10; i++) {
       var title = response.articles[i].title;
       var content = response.articles[i].content;
       var url = response.articles[i].url;

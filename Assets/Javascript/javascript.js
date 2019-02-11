@@ -27,7 +27,7 @@ $(document).ready(function() {
   }
   var yesterday = yyyy + mm + dd;
 
-  // Urls done
+  // NHL Teams and URLS
   const NHLArray = [
     {
       name: "CAROLINA HURRICANES",
@@ -65,7 +65,7 @@ $(document).ready(function() {
     { name: "VEGAS GOLDEN KNIGHTS", url: "https://www.nhl.com/goldenknights" }
   ];
 
-  // Gets Array String
+  // Gets Array String for auto complete
   emptyArray = [];
   for (var i = 0; i < NHLArray.length; i++) {
     NHLString = NHLArray[i].name;
@@ -84,7 +84,6 @@ $(document).ready(function() {
     if (action.which == 13) {
       var input = $("#s").val();
       var capUserInput = input.toUpperCase();
-      index = -1;
 
       var modal = $("#pageModal");
       var span = $(".close")[0];
@@ -112,13 +111,13 @@ $(document).ready(function() {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-  "https://newsapi.org/v2/everything?language=en&q=NHL&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+  "https://newsapi.org/v2/everything?language=en&q=NHL&pageSize=10&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 10; i++) {
       var title = response.articles[i].title;
       var content = response.articles[i].content;
       var url = response.articles[i].url;

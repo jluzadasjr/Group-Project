@@ -107,7 +107,7 @@ $("#s").keypress(function(action) {
   var googleQueryUrl = "";
 
   googleQueryUrl =
-    "https://newsapi.org/v2/top-headlines?country=us&category=sports&q=NBA&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
+    "https://newsapi.org/v2/top-headlines?country=us&category=sports&q=NBA&pageSize=10&sortBy=publishedAT&apiKey=78289f4e7eaf44ee97fa8a64479a1163";
   $.ajax({
     url: googleQueryUrl,
     method: "GET"
