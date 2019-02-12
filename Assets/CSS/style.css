@@ -1,4 +1,4 @@
-/* Overall css*/ 
+/* Overall css - JR's*/
 
 p {
   font-family: 'Eczar', serif;
@@ -26,8 +26,8 @@ a {
 
 
 
-/* NBA CSS */
-
+/* NBA CSS - JR's*/
+/* 
 
 input[type="text"] {
   width: 130px;
@@ -37,7 +37,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   width: 100%;
-}
+} */
 
 #s {
   height: 50px;
@@ -54,7 +54,7 @@ input[type="text"]:focus {
   font-family: 'Taviraj', serif;
 }
 
-/* MLB CSS */
+/* MLB CSS - JR's*/
 
 #mlb-headlines {
   border-style: dotted dashed solid double;
@@ -70,7 +70,7 @@ input[type="text"]:focus {
 
 }
 
-/* NFL CSS */
+/* NFL CSS - JR's*/
 
 #nfl-headlines {
   border-style: dotted dashed solid double;
@@ -81,7 +81,7 @@ input[type="text"]:focus {
   
 }
 
-/* NHL CSS */
+/* NHL CSS - JR's*/
 
 #nhl-headlines 
 
@@ -90,7 +90,7 @@ input[type="text"]:focus {
   
 }
 
-/* Home Page CSS */
+/* Home Page CSS - Jeston's*/
 .leagueName{
   font-family: 'Times New Roman', Times, serif;
   color: red;
@@ -103,6 +103,7 @@ input[type="text"]:focus {
 
 .leagueName:hover{
   font-size: 6vw;
+  transition: 0s;
   -webkit-transition: font-size 2s;
 }
 
@@ -118,11 +119,6 @@ input[type="text"]:focus {
   left: 0px;
 }
 
-/* .card{
-  padding: 8px;
-  min-height: 400px;
-  display: inline;
-} */
 
 
 nav{
@@ -148,7 +144,7 @@ nav{
 
 
 
-/* Auto Complete Plugin */
+/* Auto Complete Plugin - Jacob's*/
 
 .awesomplete [hidden] {
   display: none;
@@ -208,7 +204,7 @@ nav{
   }
 }
 
-/* Pointer */
+/* Pointer - Jacob's */
 .awesomplete > ul:before {
   content: "";
   position: absolute;
